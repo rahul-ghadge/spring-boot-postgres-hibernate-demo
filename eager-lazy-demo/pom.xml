@@ -10,12 +10,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>com.postgres.hibernate.secondlevelcache</groupId>
-	<artifactId>second-level-cache</artifactId>
+	<groupId>com.postgres.hibernate.eagerlazy</groupId>
+	<artifactId>eager-lazy-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>second-level-cache</name>
+	<name>eager-lazy-demo</name>
 	<url>http://maven.apache.org</url>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -28,11 +29,13 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>com.postgres.hibernate.models</groupId>

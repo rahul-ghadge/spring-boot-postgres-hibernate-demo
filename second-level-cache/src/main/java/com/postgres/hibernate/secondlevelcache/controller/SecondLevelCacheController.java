@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.postgres.hibernate.entities.secondlevelcache.UserEntity;
+import com.postgres.hibernate.models.UserEntity;
 import com.postgres.hibernate.secondlevelcache.dao.UserEntityDAO;
 
 @RestController
@@ -29,7 +29,7 @@ public class SecondLevelCacheController {
 	
 	
 	
-	@GetMapping("/jpa-repository-cache")
+	@GetMapping("/jpa-cache")
 	public void getUserFactoryCache() {
 		dao.getUserFactoryCache();
 	}

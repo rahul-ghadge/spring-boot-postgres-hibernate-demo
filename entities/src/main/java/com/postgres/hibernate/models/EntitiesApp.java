@@ -1,4 +1,4 @@
-package com.postgres.hibernate.entities;
+package com.postgres.hibernate.models;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

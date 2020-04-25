@@ -1,4 +1,4 @@
-package com.postgres.hibernate.entities;
+package com.postgres.hibernate.models;
 
 /**
  * Unit test for simple App.

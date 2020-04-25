@@ -19,6 +19,7 @@
 	<modules>
 		<module>entities</module>
 		<module>second-level-cache</module>
+		<module>eager-lazy-demo</module>
 	</modules>
 
 	<properties>
@@ -51,15 +52,4 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
-
 </project>

@@ -2,7 +2,7 @@ package com.postgres.hibernate.secondlevelcache.dao;
 
 import java.util.List;
 
-import com.postgres.hibernate.entities.secondlevelcache.UserEntity;
+import com.postgres.hibernate.models.UserEntity;
 
 public interface UserEntityDAO {
 

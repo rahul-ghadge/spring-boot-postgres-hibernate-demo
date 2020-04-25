@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.postgres.hibernate.entities.secondlevelcache.UserEntity;
+import com.postgres.hibernate.models.UserEntity;
 import com.postgres.hibernate.secondlevelcache.repository.UserRepository;
 
 @Repository

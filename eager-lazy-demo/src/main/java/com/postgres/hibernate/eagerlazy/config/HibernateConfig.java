@@ -1,4 +1,4 @@
-package com.postgres.hibernate.secondlevelcache.config;
+package com.postgres.hibernate.eagerlazy.config;
 
 import java.util.Properties;
 
@@ -32,23 +32,6 @@ public class HibernateConfig {
 		return dataSource;
 	}
 
-//	private static Properties getConnectionProperties() {
-//
-//		Properties properties = new Properties();
-//		properties.setProperty("spring.jpa.properties.hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-//		properties.setProperty("spring.jpa.hibernate.ddl-auto", "update");
-//		properties.setProperty("spring.jpa.properties.hibernate.show_sql", "true");
-//		properties.setProperty("spring.jpa.properties.hibernate.format_sql", "true");
-//		properties.setProperty("spring.jpa.properties.hibernate.use_sql_comments", "true");
-//		properties.setProperty("spring.jpa.properties.hibernate.cache.use_second_level_cache", "true");
-//		properties.setProperty("spring.jpa.properties.hibernate.cache.use_query_cache", "true");
-//		properties.setProperty("spring.jpa.properties.hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
-//		properties.setProperty("spring.jpa.properties.javax.persistence.sharedCache.mode", "ALL");
-//
-//		return properties;
-//	}
-	
-	
 	private Properties getJPAProperties() {
 
 		Properties properties = new Properties();
@@ -62,18 +45,6 @@ public class HibernateConfig {
 		properties.setProperty(Environment.USE_QUERY_CACHE, env.getProperty("spring.jpa.properties.hibernate.cache.use_query_cache"));
 		properties.setProperty(Environment.CACHE_REGION_FACTORY, env.getProperty("spring.jpa.properties.hibernate.cache.region.factory_class"));
 		properties.setProperty(Environment.JPA_SHARED_CACHE_MODE, env.getProperty("spring.jpa.properties.javax.persistence.sharedCache.mode"));
-		
-		
-		
-//		properties.setProperty("spring.jpa.properties.hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-//		properties.setProperty(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
-//		properties.setProperty(org.hibernate.cfg.Environment.SHOW_SQL, "true");
-//		properties.setProperty(org.hibernate.cfg.Environment.FORMAT_SQL, "true");
-//		properties.setProperty(org.hibernate.cfg.Environment.USE_SQL_COMMENTS, "true");
-//		properties.setProperty(org.hibernate.cfg.Environment.USE_SECOND_LEVEL_CACHE, "true");
-//		properties.setProperty(org.hibernate.cfg.Environment.USE_QUERY_CACHE, "true");
-//		properties.setProperty(org.hibernate.cfg.Environment.CACHE_REGION_FACTORY, "org.hibernate.cache.ehcache.EhCacheRegionFactory");
-//		properties.setProperty("spring.jpa.properties.javax.persistence.sharedCache.mode", "ALL");
 
 		return properties;
 	}

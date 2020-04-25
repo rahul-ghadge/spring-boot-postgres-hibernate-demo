@@ -1,4 +1,4 @@
-package com.postgres.hibernate.entities.secondlevelcache;
+package com.postgres.hibernate.models;
 
 import java.io.Serializable;
 
@@ -21,7 +21,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "user_details")
 public class UserEntity implements Serializable {
  
-    private static final long serialVersionUID = -1798070786993154676L;
+    private static final long serialVersionUID = 1L;
  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -88,7 +88,4 @@ public class UserEntity implements Serializable {
 		builder.append("]");
 		return builder.toString();
 	}
-
-	
-    
 }
