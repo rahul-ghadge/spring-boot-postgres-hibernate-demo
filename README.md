@@ -1,5 +1,6 @@
 # spring-boot-postgres-hibernate-demo
-Spring boot hibernate postgreSql tutorial with JPA and EntityManager
+Spring boot hibernate postgreSql tutorial with JPA and EntityManager.
+Will cover below topics from hibernate with multi-module spring boot projects.
 
 **1. eager-lazy-demo**
 
