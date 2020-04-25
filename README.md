@@ -1,12 +1,12 @@
 # spring-boot-postgres-hibernate-demo
 Spring boot hibernate postgreSql tutorial with JPA and EntityManager
 
-**1. entities**
+**1. eager-lazy-demo**
 
 This module will have all Entity classes
 
 
-**2. eager-lazy-demo**
+**2. entities**
 
 This module will have Eager loading and Lazy Loading with OneToMany mapping
 
