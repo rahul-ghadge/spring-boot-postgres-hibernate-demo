@@ -1,10 +1,11 @@
-package com.postgres.hibernate.eagerlazy.dao;
+package com.postgres.hibernate.eagerlazy.dao.impl;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.postgres.hibernate.eagerlazy.dao.OwnerVehicleDAO;
 import com.postgres.hibernate.models.KeyEntity;
 import com.postgres.hibernate.models.OwnerEntity;
 import com.postgres.hibernate.models.VehicleEntity;

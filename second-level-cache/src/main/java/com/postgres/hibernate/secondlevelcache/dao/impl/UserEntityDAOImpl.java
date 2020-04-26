@@ -1,4 +1,4 @@
-package com.postgres.hibernate.secondlevelcache.dao;
+package com.postgres.hibernate.secondlevelcache.dao.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.postgres.hibernate.secondlevelcache.dao.UserEntityDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
