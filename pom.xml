@@ -17,9 +17,10 @@
 	<description>Spring boot postgres hibernate demo application</description>
 
 	<modules>
-		<module>entities</module>
-		<module>second-level-cache</module>
 		<module>eager-lazy-demo</module>
+		<module>entities</module>
+		<module>first-level-cache</module>
+		<module>second-level-cache</module>
 	</modules>
 
 	<properties>
