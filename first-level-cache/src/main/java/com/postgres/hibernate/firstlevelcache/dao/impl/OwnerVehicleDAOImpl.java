@@ -1,10 +1,8 @@
-package com.postgres.hibernate.firstlevelcache.dao;
+package com.postgres.hibernate.firstlevelcache.dao.impl;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
+import com.postgres.hibernate.firstlevelcache.dao.OwnerVehicleDAO;
 import com.postgres.hibernate.firstlevelcache.repository.OwnerRepository;
 import com.postgres.hibernate.models.KeyEntity;
 import com.postgres.hibernate.models.OwnerEntity;
@@ -19,10 +17,7 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 	@Autowired
 	private OwnerRepository ownerRepository;
 
-	@PersistenceContext
-	private EntityManager entityManager;
 
-	
 	@Override
 	public List<OwnerEntity> findAll() {
 		return ownerRepository.findAll();
