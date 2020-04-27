@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+//import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.List;
 
 
 @SpringBootApplication
-@EntityScan("com.postgres.hibernate.*")
+//@EntityScan("com.postgres.hibernate.*")
 public class FirstLevelCacheApp implements CommandLineRunner {
 
 

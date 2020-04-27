@@ -34,4 +34,16 @@ public class FirstLevelCacheController {
 	}
 
 
+	@GetMapping("/clear-owner-from-cache")
+	public void clearOwnerFromCache() {
+		dao.clearOwnerFromCache();
+	}
+
+
+	@GetMapping("/clear-all-from-cache")
+	public void clearAllObjectsFromCache() {
+		dao.clearAllObjectsFromCache();
+	}
+
+
 }

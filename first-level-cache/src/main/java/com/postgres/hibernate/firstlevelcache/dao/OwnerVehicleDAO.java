@@ -12,4 +12,8 @@ public interface OwnerVehicleDAO {
 
 	void firstLevelCacheOwner();
 
+	void clearOwnerFromCache();
+
+	void clearAllObjectsFromCache();
+
 }

@@ -7,8 +7,12 @@ import com.postgres.hibernate.firstlevelcache.repository.OwnerRepository;
 import com.postgres.hibernate.models.KeyEntity;
 import com.postgres.hibernate.models.OwnerEntity;
 import com.postgres.hibernate.models.VehicleEntity;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 
 @Repository
@@ -16,6 +20,9 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 
 	@Autowired
 	private OwnerRepository ownerRepository;
+
+	@PersistenceContext
+	private EntityManager entityManager;
 
 
 	@Override
@@ -53,12 +60,54 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 	@Override
 	public void firstLevelCacheOwner() {
 
-		OwnerEntity emp = ownerRepository.getOne(1);
+		OwnerEntity owner = ownerRepository.getOne(1);
+		System.out.println("\nOwner is fetched from DB\n");
+		System.out.println("Owner:: " + owner);
+
+		OwnerEntity owner1 = ownerRepository.getOne(1);
+		System.out.println("\nOwner is fetched from cache\n");
+		System.out.println("Owner:: " + owner1);
+	}
+
+
+
+	@Override
+	public void clearOwnerFromCache() {
+
+		// Getting session from entity manager
+		Session session = entityManager.unwrap(Session.class);
+
+		OwnerEntity owner = session.find(OwnerEntity.class, 1);
+		System.out.println("\nOwner is fetched from DB\n");
+		System.out.println("Owner:: " + owner);
+
+		// Owner will be removed from session cache (First level cache) so next time it will be loaded from DB
+		session.evict(owner);
+		System.out.println("\nOwner is cleared from cache\n");
+
+		OwnerEntity owner1 = session.find(OwnerEntity.class, 1);
+		System.out.println("\nOwner is fetched from DB again\n");
+		System.out.println("Owner:: " + owner1);
+	}
+
+
+
+	@Override
+	public void clearAllObjectsFromCache() {
+
+		// Getting session from entity manager
+		Session session = entityManager.unwrap(Session.class);
+
+		OwnerEntity emp = session.find(OwnerEntity.class, 1);
 		System.out.println("\nOwner is fetched from DB\n");
 		System.out.println("Owner:: " + emp);
 
-		OwnerEntity emp1 = ownerRepository.getOne(1);
-		System.out.println("\nOwner is fetched from cache\n");
+		// All objects will be cleared from session cache (First level cache)
+		session.clear();
+		System.out.println("\nOwner is cleared from cache\n");
+
+		OwnerEntity emp1 = session.find(OwnerEntity.class, 1);
+		System.out.println("\nOwner is fetched from DB again\n");
 		System.out.println("Owner:: " + emp1);
 	}
 
