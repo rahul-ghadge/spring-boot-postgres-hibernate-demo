@@ -1,4 +1,4 @@
-package com.postgres.hibernate.firstlevelcache.repository;
+package com.postgres.hibernate.onetoone.repository;
 
 import com.postgres.hibernate.models.OwnerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

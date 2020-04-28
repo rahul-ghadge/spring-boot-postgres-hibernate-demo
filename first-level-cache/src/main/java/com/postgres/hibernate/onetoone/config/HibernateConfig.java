@@ -1,4 +1,4 @@
-package com.postgres.hibernate.firstlevelcache.config;
+package com.postgres.hibernate.onetoone.config;
 
 import org.hibernate.cfg.Environment;
 import org.springframework.context.annotation.Bean;

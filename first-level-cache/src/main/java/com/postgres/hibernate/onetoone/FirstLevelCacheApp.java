@@ -1,6 +1,6 @@
-package com.postgres.hibernate.firstlevelcache;
+package com.postgres.hibernate.onetoone;
 
-import com.postgres.hibernate.firstlevelcache.dao.OwnerVehicleDAO;
+import com.postgres.hibernate.onetoone.dao.OwnerVehicleDAO;
 import com.postgres.hibernate.models.OwnerEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

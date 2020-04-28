@@ -1,9 +1,9 @@
-package com.postgres.hibernate.firstlevelcache.dao.impl;
+package com.postgres.hibernate.onetoone.dao.impl;
 
 import java.util.List;
 
-import com.postgres.hibernate.firstlevelcache.dao.OwnerVehicleDAO;
-import com.postgres.hibernate.firstlevelcache.repository.OwnerRepository;
+import com.postgres.hibernate.onetoone.dao.OwnerVehicleDAO;
+import com.postgres.hibernate.onetoone.repository.OwnerRepository;
 import com.postgres.hibernate.models.KeyEntity;
 import com.postgres.hibernate.models.OwnerEntity;
 import com.postgres.hibernate.models.VehicleEntity;

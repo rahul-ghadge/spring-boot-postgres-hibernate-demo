@@ -1,4 +1,4 @@
-package com.postgres.hibernate.firstlevelcache;
+package com.postgres.hibernate.onetoone;
 
 /**
  * Unit test for simple App.

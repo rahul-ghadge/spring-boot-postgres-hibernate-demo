@@ -1,4 +1,4 @@
-package com.postgres.hibernate.firstlevelcache.dao;
+package com.postgres.hibernate.onetoone.dao;
 
 import com.postgres.hibernate.models.OwnerEntity;
 
