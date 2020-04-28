@@ -2,11 +2,14 @@ package com.postgres.hibernate.onetoone.dao.impl;
 
 import com.postgres.hibernate.models.Country;
 import com.postgres.hibernate.models.DialInDetails;
+import com.postgres.hibernate.models.UserEntity;
 import com.postgres.hibernate.onetoone.dao.CountryDAO;
 import com.postgres.hibernate.onetoone.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 
@@ -15,6 +18,9 @@ public class CountryDAOImpl implements CountryDAO {
 
 	@Autowired
 	private CountryRepository countryRepository;
+
+	@PersistenceContext
+	private EntityManager entityManager;
 
 
 	@Override
@@ -58,4 +64,17 @@ public class CountryDAOImpl implements CountryDAO {
 		System.out.println("Dial In Details :: " + country.getDialInDetails());
 	}
 
+	@Override
+	public void getCountryById() {
+		List<Country> countryList = entityManager
+				.createQuery("select c from Country c where c.id= :id", Country.class)
+				.setParameter("id", 1)
+
+				.getResultList();
+
+
+		System.out.println(countryList);
+		System.out.println("Closing session");
+
+	}
 }

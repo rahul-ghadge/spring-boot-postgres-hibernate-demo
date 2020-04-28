@@ -34,4 +34,9 @@ public class OneToOneController {
         dao.getOne();
     }
 
+    @GetMapping("/get-by-id")
+    public void getCountryById() {
+        dao.getCountryById();
+    }
+
 }

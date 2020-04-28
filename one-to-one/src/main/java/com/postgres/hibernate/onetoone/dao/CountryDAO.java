@@ -12,4 +12,6 @@ public interface CountryDAO {
 
 	void getOne();
 
+	public void getCountryById();
+
 }
