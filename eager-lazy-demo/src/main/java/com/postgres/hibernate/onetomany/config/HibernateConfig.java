@@ -1,4 +1,4 @@
-package com.postgres.hibernate.eagerlazy.config;
+package com.postgres.hibernate.onetomany.config;
 
 import java.util.Properties;
 

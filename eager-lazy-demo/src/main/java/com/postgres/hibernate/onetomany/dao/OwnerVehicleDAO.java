@@ -1,4 +1,4 @@
-package com.postgres.hibernate.eagerlazy.dao;
+package com.postgres.hibernate.onetomany.dao;
 
 import com.postgres.hibernate.models.OwnerEntity;
 

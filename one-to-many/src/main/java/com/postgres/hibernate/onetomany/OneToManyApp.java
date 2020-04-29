@@ -1,28 +1,25 @@
-package com.postgres.hibernate.onetoone;
+package com.postgres.hibernate.onetomany;
 
-import com.postgres.hibernate.onetoone.dao.OwnerVehicleDAO;
+import java.util.List;
+
 import com.postgres.hibernate.models.OwnerEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.postgres.hibernate.onetomany.dao.OwnerVehicleDAO;
 import org.springframework.context.annotation.Bean;
-//import org.springframework.boot.autoconfigure.domain.EntityScan;
-
-import java.util.List;
-
 
 @SpringBootApplication
-//@EntityScan("com.postgres.hibernate.*")
-public class FirstLevelCacheApp {
+public class OneToManyApp {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstLevelCacheApp.class, args);
+		SpringApplication.run(OneToManyApp.class, args);
 	}
 
-	
-	
+
 	@Autowired
 	private OwnerVehicleDAO dao;
 

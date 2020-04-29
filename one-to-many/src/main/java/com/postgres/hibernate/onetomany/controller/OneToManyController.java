@@ -1,6 +1,6 @@
-package com.postgres.hibernate.eagerlazy.controller;
+package com.postgres.hibernate.onetomany.controller;
 
-import com.postgres.hibernate.eagerlazy.dao.OwnerVehicleDAO;
+import com.postgres.hibernate.onetomany.dao.OwnerVehicleDAO;
 import com.postgres.hibernate.models.OwnerEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class EagerLazyController {
+public class OneToManyController {
 	
 	
 	@Autowired
@@ -28,13 +28,13 @@ public class EagerLazyController {
 	
 	
 	
-	@GetMapping("/lazy-loading")
-	public void lazyLoadingVehicle() {
-		dao.lazyLoadingVehicle();
+	@GetMapping("/get-owners")
+	public void getOwnerVehicle() {
+		dao.getOwnerVehicle();
 	}
 
 
-	@GetMapping("/eager-loading")
+	@GetMapping("/get-keys")
 	public void eagerLoading() {
 		dao.eagerLoadingKeys();
 	}

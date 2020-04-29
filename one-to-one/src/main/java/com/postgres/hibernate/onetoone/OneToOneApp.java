@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
 
 @SpringBootApplication
-public class OneToOneApp implements CommandLineRunner {
+public class OneToOneApp {
 
 
 	public static void main(String[] args) {
@@ -23,19 +24,20 @@ public class OneToOneApp implements CommandLineRunner {
 	@Autowired
 	private CountryDAO dao;
 
-	
-	@Override
-	public void run(String... args) throws Exception {
 
-		System.out.println("Checking for data in DB");
-		List<Country> list = dao.findAll();
+    @Bean
+    CommandLineRunner runner() {
+        return args -> {
+            System.out.println("Checking for data in DB");
+            List<Country> list = dao.findAll();
 
-		if (null == list || list.size() < 1) {
-			dao.save();
-			System.out.println("Inserted records in DB");
-		} else {
-			System.out.println("\nList :");
-			System.out.println(list);
-		}
-	}
+            if (null == list || list.size() < 1) {
+                dao.save();
+                System.out.println("Inserted records in DB");
+            } else {
+                System.out.println("\nList :");
+                System.out.println(list);
+            }
+        };
+    }
 }
