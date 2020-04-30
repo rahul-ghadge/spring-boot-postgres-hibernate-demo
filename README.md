@@ -22,7 +22,7 @@ This module will show how first level work(which is enabled bydefault)
 This module will show how Many-To-Many mapping demo, and how to configure Entity classes for that
 
 
-**5. named-query**
+**5. native-named-query**
 
 In this module will cover about NamedQuerie(s)
 
