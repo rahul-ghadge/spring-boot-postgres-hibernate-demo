@@ -1,6 +1,6 @@
-package com.postgres.hibernate.onetomany.controller;
+package com.postgres.hibernate.manytomany.controller;
 
-import com.postgres.hibernate.onetomany.dao.OwnerVehicleDAO;
+import com.postgres.hibernate.manytomany.dao.OwnerVehicleDAO;
 import com.postgres.hibernate.models.OwnerEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

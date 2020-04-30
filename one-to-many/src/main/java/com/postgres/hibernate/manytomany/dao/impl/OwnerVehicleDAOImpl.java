@@ -1,18 +1,18 @@
-package com.postgres.hibernate.onetomany.dao.impl;
+package com.postgres.hibernate.manytomany.dao.impl;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.postgres.hibernate.onetomany.dao.OwnerVehicleDAO;
+import com.postgres.hibernate.manytomany.dao.OwnerVehicleDAO;
 import com.postgres.hibernate.models.KeyEntity;
 import com.postgres.hibernate.models.OwnerEntity;
 import com.postgres.hibernate.models.VehicleEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.postgres.hibernate.onetomany.repository.OwnerRepository;
+import com.postgres.hibernate.manytomany.repository.OwnerRepository;
 
 @Repository
 public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {

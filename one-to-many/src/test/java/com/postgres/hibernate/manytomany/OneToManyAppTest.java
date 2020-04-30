@@ -1,4 +1,4 @@
-package com.postgres.hibernate.onetomany;
+package com.postgres.hibernate.manytomany;
 
 /**
  * Unit test for simple App.

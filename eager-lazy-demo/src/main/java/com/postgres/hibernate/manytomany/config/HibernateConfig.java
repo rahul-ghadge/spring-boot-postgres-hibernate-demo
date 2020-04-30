@@ -1,4 +1,4 @@
-package com.postgres.hibernate.onetomany.config;
+package com.postgres.hibernate.manytomany.config;
 
 import java.util.Properties;
 

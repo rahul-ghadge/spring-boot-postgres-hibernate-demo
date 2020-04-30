@@ -1,4 +1,4 @@
-package com.postgres.hibernate.onetomany.repository;
+package com.postgres.hibernate.manytomany.repository;
 
 import com.postgres.hibernate.models.OwnerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
