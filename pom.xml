@@ -20,6 +20,7 @@
 		<module>eager-lazy-demo</module>
 		<module>entities</module>
 		<module>first-level-cache</module>
+		<module>many-to-many</module>
 		<module>one-to-many</module>
 		<module>one-to-one</module>
 		<module>second-level-cache</module>
