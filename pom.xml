@@ -17,6 +17,7 @@
 	<description>Spring boot postgres hibernate demo application</description>
 
 	<modules>
+		<module>criteria-builder</module>
 		<module>eager-lazy-demo</module>
 		<module>entities</module>
 		<module>first-level-cache</module>

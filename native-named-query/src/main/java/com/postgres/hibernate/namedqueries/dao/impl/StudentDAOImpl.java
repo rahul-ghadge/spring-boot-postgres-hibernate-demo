@@ -30,13 +30,13 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public void save() {
-    	Student aryan = new Student("Aryan", "Ghadage");
-    	Student rahul = new Student("Rahul", "Ghadage");
-    	Student tabin = new Student("Tabin", "Gautam");
+        Student aryan = new Student("Aryan", "Ghadage");
+        Student rahul = new Student("Rahul", "Ghadage");
+        Student tabin = new Student("Tabin", "Gautam");
 
-    	repository.save(aryan);
-    	repository.save(rahul);
-    	repository.save(tabin);
+        repository.save(aryan);
+        repository.save(rahul);
+        repository.save(tabin);
 
     }
 
@@ -48,14 +48,14 @@ public class StudentDAOImpl implements StudentDAO {
                 .createNamedQuery(QueryUtils.STUDENT_BY_NAME_IDENTIFIER, Student.class)
                 .setParameter("firstName", "Aryan")
                 .getResultList();
-		System.out.println("Student :: " + list);
+        System.out.println("Student :: " + list);
 
     }
 
     @Override
     public void getById() {
 
-		System.out.println("Getting student by Id with Named query");
+        System.out.println("Getting student by Id with Named query");
         List<Student> list = entityManager
                 .createNamedQuery(QueryUtils.STUDENT_BY_ID_IDENTIFIER, Student.class)
                 .setParameter("id", 1)
@@ -63,20 +63,20 @@ public class StudentDAOImpl implements StudentDAO {
 
         System.out.println(list);
 
-		System.out.println("\n *******************************************\n");
+        System.out.println("\n *******************************************\n");
 
-		System.out.println("Getting student by last name with Native sql query");
+        System.out.println("Getting student by last name with Native sql query");
 
-		List<Student> list1 = entityManager
-				.createNamedQuery(QueryUtils.STUDENT_BY_LAST_NAME_IDENTIFIER)
-				.setParameter(1, "Ghadage")
-				.getResultList();
+        List<Student> list1 = entityManager
+                .createNamedQuery(QueryUtils.STUDENT_BY_LAST_NAME_IDENTIFIER)
+                .setParameter(1, "Ghadage")
+                .getResultList();
 
-		System.out.println(list1);
-	}
+        System.out.println(list1);
+    }
 
     @Override
-	public void getJPAQueries() {
+    public void getJPAQueries() {
 
         List<Student> studentListHql = repository.getAllStudentByHQL();
         System.out.println("Student HQL :: " + studentListHql);
@@ -90,7 +90,6 @@ public class StudentDAOImpl implements StudentDAO {
 
         Student studentHqlByParams = repository.getStudentByFirstNameAndLastName("Aryan", "Ghadage");
         System.out.println("Student List By First name & Last name :: " + studentHqlByParams);
-
 
 
     }

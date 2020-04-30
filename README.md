@@ -2,14 +2,19 @@
 Spring boot hibernate postgreSql tutorial with JPA and EntityManager.
 Will cover below topics from hibernate with multi-module spring boot projects.
 
+**0. criteria-builder**
+
+This module will fetch result with the help of Hibernate Criteria 
+
+
 **1. eager-lazy-demo**
 
-This module will have all Entity classes
+This module will have Eager loading and Lazy Loading with OneToMany mapping
 
 
 **2. entities**
 
-This module will have Eager loading and Lazy Loading with OneToMany mapping
+This module will have all Entity classes
 
 
 **3. first-level-cache**
