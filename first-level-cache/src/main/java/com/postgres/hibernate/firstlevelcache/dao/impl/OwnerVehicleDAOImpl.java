@@ -8,6 +8,8 @@ import com.postgres.hibernate.models.KeyEntity;
 import com.postgres.hibernate.models.OwnerEntity;
 import com.postgres.hibernate.models.VehicleEntity;
 import org.hibernate.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +19,8 @@ import javax.persistence.PersistenceContext;
 
 @Repository
 public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
+
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	private OwnerRepository ownerRepository;
@@ -54,6 +58,7 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 		owner.addKey(blackKey);
 		owner.addKey(silverKey);
 
+		logger.info("Saving owner:: {}", owner);
 		ownerRepository.save(owner);
 	}
 
@@ -61,12 +66,12 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 	public void firstLevelCacheOwner() {
 
 		OwnerEntity owner = ownerRepository.getOne(1);
-		System.out.println("\nOwner is fetched from DB\n");
-		System.out.println("Owner:: " + owner);
+		logger.info("\nOwner is fetched from DB\n");
+		logger.info("Owner:: {}", owner);
 
 		OwnerEntity owner1 = ownerRepository.getOne(1);
-		System.out.println("\nOwner is fetched from cache\n");
-		System.out.println("Owner:: " + owner1);
+		logger.info("\nOwner is fetched from cache\n");
+		logger.info("Owner:: {}", owner1);
 	}
 
 
@@ -78,16 +83,16 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 		Session session = entityManager.unwrap(Session.class);
 
 		OwnerEntity owner = session.find(OwnerEntity.class, 1);
-		System.out.println("\nOwner is fetched from DB\n");
-		System.out.println("Owner:: " + owner);
+		logger.info("\nOwner is fetched from DB\n");
+		logger.info("Owner:: {}", owner);
 
 		// Owner will be removed from session cache (First level cache) so next time it will be loaded from DB
 		session.evict(owner);
-		System.out.println("\nOwner is cleared from cache\n");
+		logger.info("\nOwner is cleared from cache\n");
 
 		OwnerEntity owner1 = session.find(OwnerEntity.class, 1);
-		System.out.println("\nOwner is fetched from DB again\n");
-		System.out.println("Owner:: " + owner1);
+		logger.info("\nOwner is fetched from DB again\n");
+		logger.info("Owner:: {}", owner1);
 	}
 
 
@@ -98,19 +103,17 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 		// Getting session from entity manager
 		Session session = entityManager.unwrap(Session.class);
 
-		OwnerEntity emp = session.find(OwnerEntity.class, 1);
-		System.out.println("\nOwner is fetched from DB\n");
-		System.out.println("Owner:: " + emp);
+		OwnerEntity owner = session.find(OwnerEntity.class, 1);
+		logger.info("\nOwner is fetched from DB\n");
+		logger.info("Owner:: {}", owner);
 
 		// All objects will be cleared from session cache (First level cache)
 		session.clear();
-		System.out.println("\nOwner is cleared from cache\n");
+		logger.info("\nOwner is cleared from cache\n");
 
-		OwnerEntity emp1 = session.find(OwnerEntity.class, 1);
-		System.out.println("\nOwner is fetched from DB again\n");
-		System.out.println("Owner:: " + emp1);
+		OwnerEntity owner1 = session.find(OwnerEntity.class, 1);
+		logger.info("\nOwner is fetched from DB again\n");
+		logger.info("Owner:: {}", owner1);
 	}
-
-
 
 }
