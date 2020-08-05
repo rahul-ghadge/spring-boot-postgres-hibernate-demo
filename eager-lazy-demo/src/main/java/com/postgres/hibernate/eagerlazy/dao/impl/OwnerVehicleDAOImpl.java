@@ -9,6 +9,8 @@ import com.postgres.hibernate.eagerlazy.dao.OwnerVehicleDAO;
 import com.postgres.hibernate.models.KeyEntity;
 import com.postgres.hibernate.models.OwnerEntity;
 import com.postgres.hibernate.models.VehicleEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +18,8 @@ import com.postgres.hibernate.eagerlazy.repository.OwnerRepository;
 
 @Repository
 public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
+
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	private OwnerRepository ownerRepository;
@@ -53,19 +57,21 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 		owner.addKey(blackKey);
 		owner.addKey(silverKey);
 
+		logger.info("Saving owner:: {}", owner);
+
 		ownerRepository.save(owner);
 	}
 
 	@Override
 	public void lazyLoadingVehicle() {
-		OwnerEntity emp = ownerRepository.getOne(1);
+		OwnerEntity owner = ownerRepository.getOne(1);
 
-		System.out.println("Owner:: " + emp);
-		System.out.println("\nOnly Owner is fetched from DB\n");
-		System.out.println("New Query will be generated for Vehicle");
-		System.out.println("\nVehicle get fetched Lazily here from DB\n");
-		System.out.println("Vehicles: " + emp.getVehicles());
-		System.out.println("Done!");
+		logger.info("Owner:: {}", owner);
+		logger.info("\nOnly Owner is fetched from DB\n");
+		logger.info("New Query will be generated for Vehicle");
+		logger.info("\nVehicle get fetched Lazily here from DB\n");
+		logger.info("Vehicles: {}", owner.getVehicles());
+		logger.info("Done!");
 
 	}
 
@@ -73,12 +79,12 @@ public class OwnerVehicleDAOImpl implements OwnerVehicleDAO {
 	public void eagerLoadingKeys() {
 		OwnerEntity owner = ownerRepository.getOne(1);
 
-		System.out.println("Owner:: " + owner);
-		System.out.println("\nOwner is fetched from DB\n");
-		System.out.println("No New Query will be generated for Keys");
-		System.out.println("\nKeys get fetched Eagerly here from DB\n");
-		System.out.println("Keys: " + owner.getKeys());
-		System.out.println("Done!");
+		logger.info("Owner:: {}", owner);
+		logger.info("\nOwner is fetched from DB\n");
+		logger.info("No New Query will be generated for Keys");
+		logger.info("\nKeys get fetched Eagerly here from DB\n");
+		logger.info("Keys: {}", owner.getKeys());
+		logger.info("Done!");
 	}
 
 }
