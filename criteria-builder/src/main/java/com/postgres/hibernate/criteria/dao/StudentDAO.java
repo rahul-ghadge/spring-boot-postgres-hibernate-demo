@@ -10,8 +10,8 @@ public interface StudentDAO {
 
 	void save();
 
-	void getOne();
+	List<Student> getOne();
 
-	public void getById();
+	List<Student> getById();
 
 }

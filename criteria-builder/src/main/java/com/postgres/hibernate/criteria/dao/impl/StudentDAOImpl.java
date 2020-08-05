@@ -3,6 +3,8 @@ package com.postgres.hibernate.criteria.dao.impl;
 import com.postgres.hibernate.criteria.dao.StudentDAO;
 import com.postgres.hibernate.criteria.repository.StudentRepository;
 import com.postgres.hibernate.models.Student;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +21,8 @@ import java.util.List;
 
 @Repository
 public class StudentDAOImpl implements StudentDAO {
+    
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private StudentRepository repository;
@@ -33,7 +37,14 @@ public class StudentDAOImpl implements StudentDAO {
         CriteriaQuery<Student> criteriaQuery = criteria.createQuery(Student.class);
         Root<Student> root = criteriaQuery.from(Student.class);
 
-        return entityManager.createQuery(criteriaQuery).getResultList();
+        TypedQuery<Student> query = entityManager.createQuery(criteriaQuery);
+
+        List<Student> list = query.getResultList();
+
+        logger.info("Getting all Students using criteria builder");
+        logger.info("Student :: {}", list);
+
+        return list;
     }
 
 
@@ -43,14 +54,18 @@ public class StudentDAOImpl implements StudentDAO {
         Student rahul = new Student("Rahul", "Ghadage");
         Student tabin = new Student("Tabin", "Gautam");
 
+        logger.info("Saving  :: {}", aryan);
         repository.save(aryan);
+        logger.info("Saving  :: {}", rahul);
         repository.save(rahul);
+        logger.info("Saving  :: {}", tabin);
         repository.save(tabin);
+
 
     }
 
     @Override
-    public void getOne() {
+    public List<Student> getOne() {
 
         List<Predicate> andCriteria = new ArrayList<>();
 
@@ -70,16 +85,17 @@ public class StudentDAOImpl implements StudentDAO {
 
         List<Student> list = query.getResultList();
 
-        System.out.println("Getting Student by first name and last name using criteria builder");
-        System.out.println("Student :: " + list);
+        logger.info("Getting Student by first name and last name using criteria builder");
+        logger.info("Student :: {}", list);
 
+        return list;
     }
 
     @Override
-    public void getById() {
+    public List<Student> getById() {
 
 
-        System.out.println("Getting student by Id > 0 with Criteria Builder");
+        logger.info("Getting student by Id > 0 with Criteria Builder");
         CriteriaBuilder criteria = entityManager.getCriteriaBuilder();
         CriteriaQuery<Student> criteriaQuery = criteria.createQuery(Student.class);
         Root<Student> root = criteriaQuery.from(Student.class);
@@ -89,6 +105,9 @@ public class StudentDAOImpl implements StudentDAO {
 
         List<Student> list = query.getResultList();
 
-        System.out.println("Student :: " + list);
+        logger.info("Getting Student by Id using criteria builder");
+        logger.info("Student :: {}", list);
+
+        return list;
     }
 }
