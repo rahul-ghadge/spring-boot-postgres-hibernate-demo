@@ -10,8 +10,10 @@ otherwise it will look for JPA datasource related configuration
     - DataSourceTransactionManagerAutoConfiguration.class
     - HibernateJpaAutoConfiguration.class
 
-#
-#### Entity Relations
+<br/>
+<br/>
+
+## Entity Relations
 > Package **com.postgres.hibernate.models**
 
 <!-- ******* 1 ********* -->
@@ -71,6 +73,9 @@ WhatsAppGroupAdmin
 WhatsAppGroup  
 
 
+<br/>
+<br/>
+
 > Package **com.postgres.hibernate.models.utils**  
   class **`Utils.java`**
 
@@ -78,7 +83,10 @@ In this class all below queries are added as final static strings:
    - _STUDENT_BY_ID_  
    - _STUDENT_BY_NAME_  
    - _STUDENT_BY_LAST_NAME_
-     
+  
+<br/> 
+<br/>
+  
 ## Prerequisites 
 - Hibernate
 - [PostgreSQL](https://www.postgresql.org/docs/)
