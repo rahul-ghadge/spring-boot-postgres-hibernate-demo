@@ -4,11 +4,11 @@
 All Entity classes are placed in separate module under **entities** and this module is added in all other modules.  
 This module is building first if calling build on any module where it is imported and then respective module will get build.  
 
-> Here we are disable below autoconfiguration from **`com.postgres.hibernate.models.EntitiesApp.java`** class, 
-otherwise it will look for JPA datasource related configuration
-    - DataSourceAutoConfiguration.class
-    - DataSourceTransactionManagerAutoConfiguration.class
-    - HibernateJpaAutoConfiguration.class
+>Here we are disable below autoconfiguration from **`com.postgres.hibernate.models.EntitiesApp.java`** class,   
+otherwise it will look for JPA datasource related configuration and build will fail.
+>   - **DataSourceAutoConfiguration.class**
+>   - **DataSourceTransactionManagerAutoConfiguration.class**
+>   - **HibernateJpaAutoConfiguration.class**
 
 <br/>
 <br/>
