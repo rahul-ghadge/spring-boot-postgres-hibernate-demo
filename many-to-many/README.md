@@ -8,7 +8,7 @@ if not we are adding dummy **whatsapp_group** records with **whatsapp_group_admi
 
 - Hibernate related configuration is under **`application.properties`** file.
 - Reading above properties in **`com.postgres.hibernate.manytomany.config.HibernateConfig.java`** class.
-- Find criteria related queries under **`com.postgres.hibernate.manytomany.ManyToManyApp.java`** class.
+- Find **Many To Many** related functionality under **`com.postgres.hibernate.manytomany.dao.impl.WhatsAppGroupDAOImpl.java`** class.
 
 
 #### Relations

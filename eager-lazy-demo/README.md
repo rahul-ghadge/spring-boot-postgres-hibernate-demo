@@ -8,7 +8,7 @@ if not we are adding dummy **Owner** records with **Vehicle** details list and *
 
 - Hibernate related configuration is under **`application.properties`** file.
 - Reading above properties in **`com.postgres.hibernate.eagerlazy.config.HibernateConfig.java`** class.
-- Find criteria related queries under **`com.postgres.hibernate.eagerlazy.dao.impl.OwnerVehicleDAOImpl.java`** class.
+- Find **Eager Lazy** loading related record fetching under **`com.postgres.hibernate.eagerlazy.dao.impl.OwnerVehicleDAOImpl.java`** class.
 
 
 #### Relations
