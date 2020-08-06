@@ -1,6 +1,5 @@
 package com.postgres.hibernate.manytomany.dao.impl;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +9,8 @@ import javax.transaction.Transactional;
 import com.postgres.hibernate.manytomany.dao.WhatsAppGroupDAO;
 import com.postgres.hibernate.models.WhatsAppGroup;
 import com.postgres.hibernate.models.WhatsAppGroupAdmin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +19,8 @@ import com.postgres.hibernate.manytomany.repository.WhatsAppGroupRepository;
 @Repository
 public class WhatsAppGroupDAOImpl implements WhatsAppGroupDAO {
 
+	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+	
 	@Autowired
 	private WhatsAppGroupRepository repository;
 
@@ -27,6 +30,7 @@ public class WhatsAppGroupDAOImpl implements WhatsAppGroupDAO {
 	
 	@Override
 	public List<WhatsAppGroup> findAll() {
+		LOGGER.info("Find all whatsapp groups");
 		return repository.findAll();
 	}
 
@@ -57,8 +61,11 @@ public class WhatsAppGroupDAOImpl implements WhatsAppGroupDAO {
 //		entityManager.persist(funnyBoys);
 //		entityManager.persist(coding);
 
+		LOGGER.info("Saving Whatsapp Group:: {}", avengers);
 		repository.save(avengers);
+		LOGGER.info("Saving Whatsapp Group:: {}", funnyBoys);
 		repository.save(funnyBoys);
+		LOGGER.info("Saving Whatsapp Group:: {}", coding);
 		repository.save(coding);
 
 	}
@@ -67,23 +74,23 @@ public class WhatsAppGroupDAOImpl implements WhatsAppGroupDAO {
 	public void getById() {
 		WhatsAppGroup group = repository.getOne(1);
 
-		System.out.println("WhatsApp Group 1:: " + group);
-		System.out.println("\nWhatsApp Group is fetched from DB\n");
-		System.out.println("New Query will be generated");
-		System.out.println("\nAdmin get fetched Lazily here from DB\n");
-		System.out.println("Group Admins: " + group.getAdmins());
-		System.out.println("Done!");
+		LOGGER.info("WhatsApp Group 1:: {}", group);
+		LOGGER.info("\nWhatsApp Group is fetched from DB\n");
+		LOGGER.info("New Query will be generated");
+		LOGGER.info("\nAdmin get fetched Lazily here from DB\n");
+		LOGGER.info("Group Admins: {}", group.getAdmins());
+		LOGGER.info("Done!");
 
-		System.out.println("\n\n");
+		LOGGER.info("\n\n");
 
 		WhatsAppGroup group2 = entityManager.find(WhatsAppGroup.class, 2);
 
-		System.out.println("WhatsApp Group 2:: " + group2);
-		System.out.println("\nWhatsApp Group is fetched from DB\n");
-		System.out.println("New Query will be generated");
-		System.out.println("\nAdmin get fetched Lazily here from DB\n");
-		System.out.println("Group Admins: " + group2.getAdmins());
-		System.out.println("Done!");
+		LOGGER.info("WhatsApp Group 2:: {}", group2);
+		LOGGER.info("\nWhatsApp Group is fetched from DB\n");
+		LOGGER.info("New Query will be generated");
+		LOGGER.info("\nAdmin get fetched Lazily here from DB\n");
+		LOGGER.info("Group Admins: {}", group2.getAdmins());
+		LOGGER.info("Done!");
 
 	}
 }
