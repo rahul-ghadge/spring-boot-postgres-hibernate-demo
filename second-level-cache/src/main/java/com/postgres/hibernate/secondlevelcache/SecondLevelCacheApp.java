@@ -2,6 +2,8 @@ package com.postgres.hibernate.secondlevelcache;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +16,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class SecondLevelCacheApp {
 
+	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
 		SpringApplication.run(SecondLevelCacheApp.class, args);
@@ -27,19 +30,14 @@ public class SecondLevelCacheApp {
 	@Bean
 	CommandLineRunner runner() {
 		return args -> {
-			System.out.println("Checking for data in DB");
-			List<UserEntity> userList = dao.findAll();
+			LOGGER.info("Checking for data in DB");
+			List<UserEntity> list = dao.findAll();
 
-			if (null == userList || userList.size() < 5) {
-
-				int noOfRecords = (null == userList) ? 0 : userList.size();
-				System.out.println("Number of records found in DB: " + noOfRecords);
-
+			if (null == list || list.size() < 5) {
 				dao.saveUser();
-				System.out.println("Inserted some records in DB");
+				LOGGER.info("Inserted some records in DB");
 			} else {
-				System.out.println("\nUser List :");
-				System.out.println(userList);
+				LOGGER.info("\nUser List : {}", list);
 			}
 		};
 	}

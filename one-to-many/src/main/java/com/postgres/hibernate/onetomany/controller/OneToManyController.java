@@ -24,7 +24,7 @@ public class OneToManyController {
 		dao.saveOwnerVehicle();
 	}
 
-	
+
 	@GetMapping("/")
 	public List<OwnerEntity> findAll() {
 		LOGGER.info("OneToManyController :: findAll()");
