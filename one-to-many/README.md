@@ -1,14 +1,14 @@
-# first-level-cache
+# one-to-many
 
 **Spring boot hibernate postgreSql tutorial with JPA and EntityManager** - 
-Here we will look into hibernate first level cache while fetching records from postgreSql database.  
+Here we will look into hibernate one to many mapping while fetching records from postgreSql database.  
 While starting application it will check tables are exists, if not hibernate will create tables,
 then as per functionality checking is there any record present in **`owner_details`** table, 
-if not we are adding dummy **Owner** records with **Vehicle** details list and **Keys** details list.    
+if not we are adding dummy **-** records with multiple **Vehicle** details list and respective**Keys** details list.    
 
 - Hibernate related configuration is under **`application.properties`** file.
-- Reading above properties in **`com.postgres.hibernate.firstlevelcache.config.HibernateConfig.java`** class.
-- Find **First Level Cache** related functionality under **`com.postgres.hibernate.firstlevelcache.dao.impl.OwnerVehicleDAOImpl.java`** class.
+- Reading above properties in **`com.postgres.hibernate.onetomany.config.HibernateConfig.java`** class.
+- Find **First Level Cache** related functionality under **`com.postgres.hibernate.onetomany.dao.impl.OwnerVehicleDAOImpl.java`** class.
 
 
 #### Relations
@@ -32,7 +32,7 @@ OwnerEntity   &nbsp;&nbsp;&nbsp;&nbsp;   **one-to-many**   &nbsp;&nbsp;&nbsp;&nb
 
 
 ###  Build and Run application
-_GOTO >_ **~/absolute-path-to-directory/spring-boot-postgres-hibernate-demo/first-level-cache**  
+_GOTO >_ **~/absolute-path-to-directory/spring-boot-postgres-hibernate-demo/one-to-many**  
 and try below command in terminal
 > **```mvn spring-boot:run```** it will run application as spring boot application
 
@@ -40,9 +40,9 @@ or
 > **```mvn clean install```** it will build application and create **jar** file under target directory 
 
 Run jar file from below path with given command
-> **```java -jar ~/path-to-<first-level-cache>/target/first-level-cache-0.0.1-SNAPSHOT.jar```**
+> **```java -jar ~/path-to-<one-to-many>/target/one-to-many-0.0.1-SNAPSHOT.jar```**
 
-Or run main method from `FirstLevelCacheApp.java` as spring boot application.
+Or run main method from `OneToManyApp.java` as spring boot application.
 
 
 ### API End Points
@@ -50,10 +50,7 @@ Or run main method from `FirstLevelCacheApp.java` as spring boot application.
 > http://localhost:8080 - Get all Owner 
 
 
-> http://localhost:8080/first-level-cache - Get Owner records from the cache (check logs)  
+> http://localhost:8080/get-owners - Get Owner records along with Vehicle details  
 
 
-> http://localhost:8080/clear-owner-from-cache -  Remove given Owner record from the Cache (check logs)
-
-
-> http://localhost:8080/clear-all-from-cache -  Remove all Owner records from the Cache (check logs)
+> http://localhost:8080/get-keys - Get Owner records along with Keys details

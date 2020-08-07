@@ -3,7 +3,7 @@
 **Spring boot hibernate postgreSql tutorial with JPA and EntityManager** - 
 Here we will look into hibernate many to many mapping with WhatsAppGroup to WhatsAppGroupAdmin.  
 While starting application it will check tables are exists, if not hibernate will create tables,
-then as per functionality checking is there any record present in **`owner_details`** table, 
+then as per functionality checking is there any record present in **`whatsapp_group`** table, 
 if not we are adding dummy **whatsapp_group** records with **whatsapp_group_admin**.    
 
 - Hibernate related configuration is under **`application.properties`** file.
