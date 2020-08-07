@@ -5,6 +5,8 @@ import com.postgres.hibernate.models.DialInDetails;
 import com.postgres.hibernate.models.UserEntity;
 import com.postgres.hibernate.onetoone.dao.CountryDAO;
 import com.postgres.hibernate.onetoone.repository.CountryRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +18,8 @@ import java.util.List;
 @Repository
 public class CountryDAOImpl implements CountryDAO {
 
+	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+	
 	@Autowired
 	private CountryRepository countryRepository;
 
@@ -46,8 +50,11 @@ public class CountryDAOImpl implements CountryDAO {
 		DialInDetails dialInDetailsNetherlands = new DialInDetails("NL", "31");
 		netherlands.setDialInDetails(dialInDetailsNetherlands);
 
+		LOGGER.info("Saving :: {}", india);
 		countryRepository.save(india);
+		LOGGER.info("Saving :: {}", usa);
 		countryRepository.save(usa);
+		LOGGER.info("Saving :: {}", netherlands);
 		countryRepository.save(netherlands);
 
 
@@ -57,11 +64,11 @@ public class CountryDAOImpl implements CountryDAO {
 	public void getOne() {
 
 		Country country = countryRepository.getOne(1);
-		System.out.println("\nCountry is fetched from DB\n");
-		System.out.println("Country:: " + country);
+		LOGGER.info("\nCountry is fetched from DB\n");
+		LOGGER.info("Country:: {}", country);
 
-		System.out.println("\nDial in details also fetched (Onr-To-One mapping) \n");
-		System.out.println("Dial In Details :: " + country.getDialInDetails());
+		LOGGER.info("\nDial in details also fetched (Onr-To-One mapping) \n");
+		LOGGER.info("Dial In Details :: {}", country.getDialInDetails());
 	}
 
 	@Override
@@ -73,8 +80,8 @@ public class CountryDAOImpl implements CountryDAO {
 				.getResultList();
 
 
-		System.out.println(countryList);
-		System.out.println("Closing session");
+		LOGGER.info("Country Details :: {}", countryList);
+		LOGGER.info("Closing session");
 
 	}
 }

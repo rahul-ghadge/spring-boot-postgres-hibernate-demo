@@ -2,6 +2,7 @@
 
 **Spring boot hibernate postgreSql tutorial with JPA and EntityManager** - 
 Here we will look into hibernate first level cache while fetching records from postgreSql database.  
+`First Level Cache is` **`ENABLED`** `by-default and there is` **`NO WAY TO DISABLE`** `it.`  
 While starting application it will check tables are exists, if not hibernate will create tables,
 then as per functionality checking is there any record present in **`owner_details`** table, 
 if not we are adding dummy **Owner** records with **Vehicle** details list and **Keys** details list.    
@@ -42,7 +43,8 @@ or
 Run jar file from below path with given command
 > **```java -jar ~/path-to-<first-level-cache>/target/first-level-cache-0.0.1-SNAPSHOT.jar```**
 
-Or run main method from `FirstLevelCacheApp.java` as spring boot application.
+Or 
+> run main method from `FirstLevelCacheApp.java` as spring boot application.
 
 
 ### API End Points

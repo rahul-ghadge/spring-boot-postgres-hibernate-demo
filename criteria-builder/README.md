@@ -36,7 +36,8 @@ or
 Run jar file from below path with given command
 > **```java -jar ~/path-to-<criteria-builder>/target/criteria-builder-0.0.1-SNAPSHOT.jar```**
 
-Or run main method from `CriteriaBuilderApp.java` as spring boot application.
+Or 
+> run main method from `CriteriaBuilderApp.java` as spring boot application.
 
 
 ### API End Points

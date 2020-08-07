@@ -42,7 +42,8 @@ or
 Run jar file from below path with given command
 > **```java -jar ~/path-to-<one-to-many>/target/one-to-many-0.0.1-SNAPSHOT.jar```**
 
-Or run main method from `OneToManyApp.java` as spring boot application.
+Or 
+> run main method from `OneToManyApp.java` as spring boot application.
 
 
 ### API End Points
