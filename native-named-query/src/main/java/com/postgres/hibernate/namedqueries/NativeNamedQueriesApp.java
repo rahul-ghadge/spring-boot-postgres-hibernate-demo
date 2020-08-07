@@ -2,6 +2,8 @@ package com.postgres.hibernate.namedqueries;
 
 import com.postgres.hibernate.models.Student;
 import com.postgres.hibernate.namedqueries.dao.StudentDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,12 +16,12 @@ import java.util.List;
 @SpringBootApplication
 public class NativeNamedQueriesApp {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
 	public static void main(String[] args) {
 		SpringApplication.run(NativeNamedQueriesApp.class, args);
 	}
 
-	
 	
 	@Autowired
 	private StudentDAO dao;
@@ -28,15 +30,14 @@ public class NativeNamedQueriesApp {
     @Bean
     CommandLineRunner runner() {
         return args -> {
-            System.out.println("Checking for data in DB");
+            LOGGER.info("Checking for data in DB");
             List<Student> list = dao.findAll();
 
             if (null == list || list.size() < 1) {
                 dao.save();
-                System.out.println("Inserted records in DB");
+                LOGGER.info("Inserted records in DB");
             } else {
-                System.out.println("\nList :");
-                System.out.println(list);
+                LOGGER.info("\nList : {}", list);
             }
         };
     }

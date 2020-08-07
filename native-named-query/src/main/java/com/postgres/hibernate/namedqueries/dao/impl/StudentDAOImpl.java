@@ -4,6 +4,8 @@ import com.postgres.hibernate.models.Student;
 import com.postgres.hibernate.models.utils.QueryUtils;
 import com.postgres.hibernate.namedqueries.dao.StudentDAO;
 import com.postgres.hibernate.namedqueries.repository.StudentRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +17,8 @@ import java.util.List;
 @Repository
 public class StudentDAOImpl implements StudentDAO {
 
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+    
     @Autowired
     private StudentRepository repository;
 
@@ -34,8 +38,11 @@ public class StudentDAOImpl implements StudentDAO {
         Student rahul = new Student("Rahul", "Ghadage");
         Student tabin = new Student("Tabin", "Gautam");
 
+        LOGGER.info("Saving :: {}", aryan);
         repository.save(aryan);
+        LOGGER.info("Saving :: {}", rahul);
         repository.save(rahul);
+        LOGGER.info("Saving :: {}", tabin);
         repository.save(tabin);
 
     }
@@ -43,53 +50,53 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public void getOne() {
 
-        System.out.println("Getting Student by name");
+        LOGGER.info("Getting Student by name");
         List<Student> list = entityManager
                 .createNamedQuery(QueryUtils.STUDENT_BY_NAME_IDENTIFIER, Student.class)
                 .setParameter("firstName", "Aryan")
                 .getResultList();
-        System.out.println("Student :: " + list);
+        LOGGER.info("Student :: {}", list);
 
     }
 
     @Override
     public void getById() {
 
-        System.out.println("Getting student by Id with Named query");
+        LOGGER.info("Getting student by Id with Named query");
         List<Student> list = entityManager
                 .createNamedQuery(QueryUtils.STUDENT_BY_ID_IDENTIFIER, Student.class)
                 .setParameter("id", 1)
                 .getResultList();
 
-        System.out.println(list);
+        LOGGER.info("Students :: {}", list);
 
-        System.out.println("\n *******************************************\n");
+        LOGGER.info("*******************************************");
 
-        System.out.println("Getting student by last name with Native sql query");
+        LOGGER.info("Getting student by last name with Native sql query");
 
         List<Student> list1 = entityManager
-                .createNamedQuery(QueryUtils.STUDENT_BY_LAST_NAME_IDENTIFIER)
+                .createNamedQuery(QueryUtils.STUDENT_BY_LAST_NAME_IDENTIFIER, Student.class)
                 .setParameter(1, "Ghadage")
                 .getResultList();
 
-        System.out.println(list1);
+        LOGGER.info("Students :: {}", list1);
     }
 
     @Override
     public void getJPAQueries() {
 
         List<Student> studentListHql = repository.getAllStudentByHQL();
-        System.out.println("Student HQL :: " + studentListHql);
+        LOGGER.info("Student HQL :: {}", studentListHql);
 
-        System.out.println("\n");
+        LOGGER.info("\n");
 
         List<Student> nativeStudentListByIdByIndex = repository.getNativeStudentByIdByIndex(1);
-        System.out.println("Student List by index param in query :: " + nativeStudentListByIdByIndex);
+        LOGGER.info("Student List by index param in query :: {}", nativeStudentListByIdByIndex);
 
-        System.out.println("\n");
+        LOGGER.info("\n");
 
         Student studentHqlByParams = repository.getStudentByFirstNameAndLastName("Aryan", "Ghadage");
-        System.out.println("Student List By First name & Last name :: " + studentHqlByParams);
+        LOGGER.info("Student List By First name & Last name :: {}", studentHqlByParams);
 
 
     }
