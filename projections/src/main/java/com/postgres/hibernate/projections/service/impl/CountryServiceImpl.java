@@ -33,6 +33,10 @@ public class CountryServiceImpl implements CountryService {
         DialInDetails dialInDetailsIndia = new DialInDetails("IN", "91");
         india.setDialInDetails(dialInDetailsIndia);
 
+        Country japan = new Country("Japan", "ASIA");
+        DialInDetails dialInDetailsJapan = new DialInDetails("JPN", "81");
+        japan.setDialInDetails(dialInDetailsJapan);
+
         Country usa = new Country("USA", "USA");
         DialInDetails dialInDetailsUsa = new DialInDetails("US", "1");
         usa.setDialInDetails(dialInDetailsUsa);
@@ -43,6 +47,8 @@ public class CountryServiceImpl implements CountryService {
 
         LOGGER.info("Saving :: {}", india);
         countryRepository.save(india);
+        LOGGER.info("Saving :: {}", japan);
+        countryRepository.save(japan);
         LOGGER.info("Saving :: {}", usa);
         countryRepository.save(usa);
         LOGGER.info("Saving :: {}", netherlands);
@@ -56,17 +62,17 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<Object[]> getCountryDetails(String countryName) {
-        return countryRepository.getCountryDetails(countryName);
+    public List<Object[]> getCountryDetails(String continent) {
+        return countryRepository.getCountryDetails(continent);
     }
 
     @Override
-    public List<CountryDto> findByCountryNameConstructor(String countryName) {
-        return countryRepository.findByCountryNameConstructor(countryName);
+    public List<CountryDto> findByContinentConstructor(String continent) {
+        return countryRepository.findByContinentConstructor(continent);
     }
 
     @Override
-    public CountryView findViewByCountryName(String countryName) {
-        return countryRepository.findViewByCountryName(countryName);
+    public List<CountryView> findViewByContinent(String continent) {
+        return countryRepository.findViewByContinent(continent);
     }
 }

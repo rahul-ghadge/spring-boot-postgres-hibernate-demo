@@ -16,7 +16,7 @@ public class Country {
     @Column(name="country_name", unique = true, nullable = false)
     private String countryName;
 
-    @Column(name="continent", unique = true, nullable = false)
+    @Column(name="continent", nullable = false)
     private String continent;
 
     @OneToOne(cascade=CascadeType.ALL)

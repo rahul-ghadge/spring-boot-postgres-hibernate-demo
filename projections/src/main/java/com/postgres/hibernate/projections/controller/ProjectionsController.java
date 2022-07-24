@@ -21,18 +21,18 @@ public class ProjectionsController {
         return ResponseEntity.ok(countryService.findByCountryName(countryName));
     }
 
-    @GetMapping("/country/object/array/{countryName}")
-    public ResponseEntity<?> getCountryDetails(@PathVariable String countryName) {
-        return ResponseEntity.ok(countryService.getCountryDetails(countryName));
+    @GetMapping("/country/object/array/{continent}")
+    public ResponseEntity<?> getCountryDetails(@PathVariable String continent) {
+        return ResponseEntity.ok(countryService.getCountryDetails(continent));
     }
 
-    @GetMapping("/country/constructor/{countryName}")
-    public ResponseEntity<?> findByCountryNameConstructor(@PathVariable String countryName) {
-        return ResponseEntity.ok(countryService.findByCountryNameConstructor(countryName));
+    @GetMapping("/country/constructor/{continent}")
+    public ResponseEntity<?> findByContinentConstructor(@PathVariable String continent) {
+        return ResponseEntity.ok(countryService.findByContinentConstructor(continent));
     }
 
-    @GetMapping("/country/view/interface/{countryName}")
-    public ResponseEntity<?> findViewByCountryName(@PathVariable String countryName) {
-        return ResponseEntity.ok(countryService.findViewByCountryName(countryName));
+    @GetMapping("/country/view/interface/{continent}")
+    public ResponseEntity<?> findViewByContinent(@PathVariable String continent) {
+        return ResponseEntity.ok(countryService.findViewByContinent(continent));
     }
 }

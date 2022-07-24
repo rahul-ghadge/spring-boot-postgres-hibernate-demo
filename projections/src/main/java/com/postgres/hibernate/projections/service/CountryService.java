@@ -14,10 +14,10 @@ public interface CountryService {
 
     List<CountryDto> findByCountryName(String countryName);
 
-    List<Object[]> getCountryDetails(String countryName);
+    List<Object[]> getCountryDetails(String continent);
 
-    List<CountryDto> findByCountryNameConstructor(String countryName);
+    List<CountryDto> findByContinentConstructor(String continent);
 
-    CountryView findViewByCountryName(String countryName);
+    List<CountryView> findViewByContinent(String continent);
 
 }

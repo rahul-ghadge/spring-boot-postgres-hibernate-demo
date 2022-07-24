@@ -50,7 +50,14 @@ This module will show how One-To-One mapping demo, and how to configure Entity c
 For more details look, [one-to-one](https://github.com/rahul-ghadge/spring-boot-postgres-hibernate-demo/tree/master/one-to-one)
 
 
-**8. second-level-cache**
+**8. projections**
+
+In this module projections is used with JPARepository to fetch selected columns instead of fetching whole entity class with the help of 
+query, interface and DTO class.
+For more details look, [projections](https://github.com/rahul-ghadge/spring-boot-postgres-hibernate-demo/tree/master/projections)
+
+
+**9. second-level-cache**
 
 In this module Second level cache is used with JPA classes using JPARepository.
 Also, covered Query Cache with EntityManager with NativeSQLQuerie(s).  

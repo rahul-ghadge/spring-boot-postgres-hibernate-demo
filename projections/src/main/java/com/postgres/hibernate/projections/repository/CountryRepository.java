@@ -12,13 +12,12 @@ public interface CountryRepository extends JpaRepository<Country, Integer> {
 
     List<CountryDto> findByCountryName(String countryName);
 
-    @Query("SELECT c.id, c.countryName, c.continent FROM Country c WHERE c.countryName = :countryName")
-    List<Object[]> getCountryDetails(String countryName);
+    @Query("SELECT c.id, c.countryName, c.continent FROM Country c WHERE c.continent = :continent")
+    List<Object[]> getCountryDetails(String continent);
 
-    @Query("SELECT new com.postgres.hibernate.models.dto.CountryDto(c.id, c.countryName, c.continent) FROM Country c WHERE c.countryName = :countryName")
-    List<CountryDto> findByCountryNameConstructor(String countryName);
+    @Query("SELECT new com.postgres.hibernate.models.dto.CountryDto(c.id, c.countryName, c.continent) FROM Country c WHERE c.continent = :continent")
+    List<CountryDto> findByContinentConstructor(String continent);
 
-    CountryView findViewByCountryName(String countryName);
-
+    List<CountryView> findViewByContinent(String continent);
 
 }
