@@ -7,7 +7,7 @@ then as per functionality checking is there any record present in **`country`** 
 if not we are adding dummy **country** records with unique **dial_in_details** details.
 
 - Hibernate related configuration is under **`application.properties`** file.
-- Reading above properties in **`com.postgres.hibernate.onetoone.config.HibernateConfig.java`** class.
+- Reading above properties in **`com.postgres.hibernate.projections.config.HibernateConfig.java`** class.
 - Find **JPA projections** related functionality under **`com.postgres.hibernate.projections.repository.CountryRepository.java`** interface.
 
 
